@@ -33,7 +33,7 @@ def round(points, distance=5000):
     """
     x, y, z = pyproj.transform(_WGS84, _GEOCENTRIC,
                                points[0], points[1],
-                               np.full(points[0].shape, 32000))
+                               np.full(points[0].shape, 32000, dtype=np.float64))
 
     fac = distance
     x, y, z = (_round_to_nearest(x, fac),
